@@ -40,6 +40,8 @@ module.exports = function (grunt) {
       callback: function() {}
     });
 
+    var execCommand; // forward declaration
+
     grunt.verbose.writeflags(options, 'Raw Options');
 
     function setOption(optionName) {
@@ -98,7 +100,7 @@ module.exports = function (grunt) {
     });
 
 
-    function execCommand() {
+    execCommand = function() {
       if (commands.length === 0) {
         c.end();
       } else {
@@ -142,7 +144,7 @@ module.exports = function (grunt) {
           });
         });
       }
-    }
+    };
 
     var connectionOptions = utillib.parseConnectionOptions(options);
     connectionOptions.tryKeyboard = true;
